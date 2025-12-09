@@ -1,0 +1,46 @@
+<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffed4e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffd700;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Playing cards fan -->
+  <g transform="translate(10, 5)">
+    <!-- Card 1 - A -->
+    <rect x="0" y="0" width="12" height="18" rx="1" fill="#8B0000" stroke="#ffd700" stroke-width="0.5"/>
+    <text x="6" y="12" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#ffd700" text-anchor="middle">A</text>
+    <path d="M 6 8 L 5 10 L 7 10 Z" fill="#ffd700"/>
+    
+    <!-- Card 2 - K -->
+    <rect x="8" y="2" width="12" height="18" rx="1" fill="#8B0000" stroke="#ffd700" stroke-width="0.5" transform="rotate(15 14 11)"/>
+    <text x="14" y="12" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#ffd700" text-anchor="middle" transform="rotate(15 14 12)">K</text>
+    
+    <!-- Card 3 - Q -->
+    <rect x="16" y="4" width="12" height="18" rx="1" fill="#8B0000" stroke="#ffd700" stroke-width="0.5" transform="rotate(30 22 13)"/>
+    <text x="22" y="13" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#ffd700" text-anchor="middle" transform="rotate(30 22 13)">Q</text>
+    
+    <!-- Card 4 - J -->
+    <rect x="24" y="6" width="12" height="18" rx="1" fill="#8B0000" stroke="#ffd700" stroke-width="0.5" transform="rotate(45 30 15)"/>
+    <text x="30" y="15" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#ffd700" text-anchor="middle" transform="rotate(45 30 15)">J</text>
+    
+    <!-- Card 5 - A -->
+    <rect x="32" y="4" width="12" height="18" rx="1" fill="#8B0000" stroke="#ffd700" stroke-width="0.5" transform="rotate(30 38 13)"/>
+    <text x="38" y="13" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#ffd700" text-anchor="middle" transform="rotate(30 38 13)">A</text>
+    <path d="M 38 9 L 37 11 L 39 11 Z" fill="#ffd700" transform="rotate(30 38 13)"/>
+  </g>
+  
+  <!-- Myanbetapp text -->
+  <text x="60" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="url(#goldGradient)" filter="url(#glow)">Myanbetapp</text>
+</svg>
+
