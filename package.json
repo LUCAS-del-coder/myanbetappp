@@ -1,7 +1,7 @@
 {
-  "name": "myancasino-clone",
+  "name": "myanbetapp",
   "version": "1.0.0",
-  "description": "MyanCasino Clone Website",
+  "description": "Myanbetapp - Myanmar Online Casino Platform",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

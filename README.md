@@ -1,6 +1,6 @@
-# MyanCasino Clone
+# Myanbetapp
 
-Myanmar Online Casino Website Clone
+Myanbetapp - Myanmar Online Casino Platform
 
 ## 本地開發
 
