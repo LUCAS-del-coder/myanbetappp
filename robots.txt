@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /assets/image/
+Disallow: /*.html$
+
+Sitemap: https://myanbetapp.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
