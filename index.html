@@ -298,15 +298,16 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 16px;
-      background: white;
-      border-radius: 8px;
-      color: #333;
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 25%, #ffd700 50%, #ffb347 75%, #ffd700 100%);
+      background-size: 200% 200%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       text-shadow: none;
       letter-spacing: 1px;
       position: relative;
-      font-weight: 900;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      animation: logo-shine 4s ease-in-out infinite, text-pulse 2s ease-in-out infinite;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)) drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
     }
     .logo-text::after {
       content: '';
