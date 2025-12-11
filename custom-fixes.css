@@ -28,21 +28,18 @@ a {
 /* ===== 1. 導航欄全新設計 ===== */
 header#navbar {
   background: rgba(0, 0, 0, 0.7) !important;
-  backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(5px) saturate(150%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   padding: 1rem 0 !important;
 }
 
 header#navbar .logo-text {
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #f6d365 !important;
   font-size: 1.75rem !important;
   font-weight: 900 !important;
   letter-spacing: -0.5px;
-  text-shadow: 0 0 30px rgba(246, 211, 101, 0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 header#navbar nav a {
@@ -50,6 +47,8 @@ header#navbar nav a {
   padding: 0.5rem 1rem;
   border-radius: 8px;
   transition: all 0.3s ease;
+  color: #ffffff !important;
+  font-weight: 600 !important;
 }
 
 header#navbar nav a::before {
@@ -124,27 +123,24 @@ header#navbar nav a:hover::before {
   font-weight: 900 !important;
   line-height: 1.1 !important;
   margin-bottom: 2rem !important;
-  background: linear-gradient(135deg, #ffffff 0%, #f6d365 50%, #ffffff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: none !important;
-  animation: textGlow 3s ease-in-out infinite;
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(246, 211, 101, 0.3) !important;
   letter-spacing: -1px;
 }
 
-@keyframes textGlow {
-  0%, 100% { filter: drop-shadow(0 0 20px rgba(246, 211, 101, 0.5)); }
-  50% { filter: drop-shadow(0 0 30px rgba(246, 211, 101, 0.8)); }
+#home h1 span {
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 15px rgba(246, 211, 101, 0.4) !important;
 }
 
 #home p {
   font-size: clamp(1.125rem, 2.5vw, 1.5rem) !important;
-  color: rgba(255, 255, 255, 0.95) !important;
+  color: #ffffff !important;
   line-height: 1.8 !important;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6) !important;
   max-width: 800px;
   margin: 0 auto 3rem !important;
+  font-weight: 500 !important;
 }
 
 #home .flex.flex-col a {
@@ -180,9 +176,10 @@ header#navbar nav a:hover::before {
 }
 
 #home .flex.flex-col a:last-child {
-  background: rgba(255, 255, 255, 0.15) !important;
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(3px);
+  border: 2px solid rgba(255, 255, 255, 0.4) !important;
+  color: #ffffff !important;
 }
 
 #home .flex.flex-col a:last-child:hover {
@@ -198,9 +195,9 @@ header#navbar nav a:hover::before {
 }
 
 #home .grid.grid-cols-2 > div a {
-  background: rgba(255, 255, 255, 0.2) !important;
-  backdrop-filter: blur(20px) saturate(180%);
-  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(5px) saturate(150%);
+  border: 2px solid rgba(255, 255, 255, 0.4) !important;
   border-radius: 20px !important;
   padding: 2rem !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -271,24 +268,22 @@ header#navbar nav a:hover::before {
 #bonus h2 {
   font-size: clamp(2rem, 6vw, 3.5rem) !important;
   font-weight: 900 !important;
-  background: linear-gradient(135deg, #ffffff 0%, #f6d365 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff !important;
   margin-bottom: 1rem !important;
-  text-shadow: none !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 15px rgba(246, 211, 101, 0.3) !important;
 }
 
 #bonus h3 {
   color: #f6d365 !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   font-size: clamp(1.125rem, 2.5vw, 1.5rem) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
 }
 
 #bonus .grid.md\:grid-cols-1.lg\:grid-cols-2 > div {
-  background: rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(20px) saturate(180%);
-  border: 2px solid rgba(255, 255, 255, 0.4) !important;
+  background: rgba(255, 255, 255, 0.35) !important;
+  backdrop-filter: blur(5px) saturate(150%);
+  border: 2px solid rgba(255, 255, 255, 0.5) !important;
   border-radius: 24px !important;
   padding: 2.5rem !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -322,9 +317,10 @@ header#navbar nav a:hover::before {
 
 #bonus .grid.md\:grid-cols-1.lg\:grid-cols-2 > div a {
   color: #f6d365 !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
   font-size: 1.25rem !important;
   transition: all 0.3s;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
 }
 
 #bonus .grid.md\:grid-cols-1.lg\:grid-cols-2 > div a:hover {
@@ -333,9 +329,11 @@ header#navbar nav a:hover::before {
 }
 
 #bonus .grid.md\:grid-cols-1.lg\:grid-cols-2 > div p {
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
   line-height: 1.8 !important;
   font-size: 1rem !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+  font-weight: 400 !important;
 }
 
 /* 促銷橫幅 */
@@ -560,9 +558,9 @@ header#navbar nav a:hover::before {
 }
 
 #faq div[class*="border"] {
-  background: rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(20px) saturate(180%);
-  border: 2px solid rgba(255, 255, 255, 0.4) !important;
+  background: rgba(255, 255, 255, 0.4) !important;
+  backdrop-filter: blur(5px) saturate(150%);
+  border: 2px solid rgba(255, 255, 255, 0.5) !important;
   border-radius: 20px !important;
   margin-bottom: 1.5rem !important;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
@@ -578,7 +576,7 @@ header#navbar nav a:hover::before {
 
 #faq button[aria-expanded] {
   background: transparent !important;
-  color: #ffffff !important;
+  color: #1a1a1a !important;
   font-weight: 700 !important;
   font-size: 1.125rem !important;
   padding: 1.5rem 2rem !important;
@@ -599,9 +597,9 @@ header#navbar nav a:hover::before {
 }
 
 #faq .faq-answer > div {
-  background: rgba(255, 255, 255, 0.15) !important;
+  background: rgba(255, 255, 255, 0.3) !important;
   border-top: 2px solid rgba(246, 211, 101, 0.5) !important;
-  color: rgba(255, 255, 255, 0.95) !important;
+  color: #333333 !important;
   padding: 2rem !important;
   line-height: 2 !important;
   font-size: 1rem !important;
