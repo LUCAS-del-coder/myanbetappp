@@ -92,12 +92,23 @@ header#navbar nav a:hover::before {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
+
+#home::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image: url('./assets/image/5727d62c6420525fa787892c912158c5.jpg') !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-attachment: fixed !important;
   filter: brightness(0.7) !important;
+  z-index: -20;
+  pointer-events: none;
 }
 
 #home::before {
