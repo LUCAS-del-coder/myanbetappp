@@ -100,9 +100,11 @@ header#navbar nav a:hover::before {
   pointer-events: none;
 }
 
-#home img[src*="home-background"] {
-  filter: brightness(0.85) saturate(1.2);
-  transform: scale(1.05);
+#home img[src*="home-background"],
+#home img[src*="5727d62c6420525fa787892c912158c5"],
+#home img[src*="casino"] {
+  filter: brightness(0.9) saturate(1.1);
+  transform: scale(1.02);
   animation: backgroundFloat 20s ease-in-out infinite;
 }
 
