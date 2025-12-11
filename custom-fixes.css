@@ -461,6 +461,15 @@ header#navbar nav a:hover::before {
   text-align: center !important;
 }
 
+/* 統一所有遊戲按鈕樣式 */
+#games .button-overlay a[class*="bg-gradient-to-r"] {
+  background: linear-gradient(135deg, #FB2056 0%, #D50000 100%) !important;
+  font-weight: 700 !important;
+  padding: 0.875rem 1.25rem !important;
+  box-shadow: 0 8px 24px rgba(251, 32, 86, 0.4) !important;
+  width: 100% !important;
+}
+
 #games .button-overlay a:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 12px 32px rgba(251, 32, 86, 0.6) !important;
