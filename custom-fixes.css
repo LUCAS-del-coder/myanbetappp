@@ -1,0 +1,569 @@
+/* ========================================
+   UI 格式修正 - 基於 Claude 格式修復版
+   ======================================== */
+
+/* ===== 1. Hero Section 標題增強 ===== */
+#home {
+  position: relative;
+}
+
+#home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+  z-index: 1;
+}
+
+#home > * {
+  position: relative;
+  z-index: 2;
+}
+
+#home h1 {
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9) !important;
+  font-weight: 800 !important;
+  line-height: 1.3 !important;
+}
+
+#home p {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8) !important;
+  color: #ffffff !important;
+}
+
+/* ===== 2. Logo Grid 修正 ===== */
+#home .grid.grid-cols-2 {
+  display: grid !important;
+  gap: 24px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 40px 20px !important;
+}
+
+@media (min-width: 768px) {
+  #home .grid.grid-cols-2 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  #home .grid.grid-cols-2 {
+    grid-template-columns: repeat(6, 1fr) !important;
+  }
+}
+
+#home .grid.grid-cols-2 > div {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  transition: all 0.3s ease;
+}
+
+#home .grid.grid-cols-2 > div:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 253, 108, 0.4);
+  box-shadow: 0 8px 24px rgba(255, 253, 108, 0.2);
+}
+
+#home .grid.grid-cols-2 img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 60px;
+}
+
+/* ===== 3. Bonus 卡片等高修正 ===== */
+#bonus > div > div.grid[class*="grid-cols"] {
+  display: grid !important;
+  gap: 20px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 40px 20px !important;
+}
+
+@media (min-width: 1024px) {
+  #bonus > div > div.grid[class*="grid-cols"]:first-of-type {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+#bonus > div > div.grid[class*="grid-cols"]:first-of-type > div {
+  background: rgba(30, 58, 95, 0.85) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px !important;
+  display: flex !important;
+  gap: 16px;
+  align-items: flex-start;
+  min-height: 160px !important;
+  transition: all 0.3s ease;
+}
+
+#bonus .grid.md\:grid-cols-1.lg\:grid-cols-2 > div:hover {
+  transform: translateY(-3px);
+  background: rgba(30, 58, 95, 0.95) !important;
+  border-color: rgba(255, 253, 108, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+#bonus > div > div.grid[class*="grid-cols"]:first-of-type span[class*="text-3xl"],
+#bonus > div > div.grid[class*="grid-cols"]:first-of-type span[class*="text-4xl"],
+#bonus > div > div.grid[class*="grid-cols"]:first-of-type span[class*="text-5xl"] {
+  font-size: 36px !important;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+#bonus > div > div.grid[class*="grid-cols"]:first-of-type a[class*="font-bold"] {
+  color: #FFD700 !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  margin-bottom: 8px !important;
+  line-height: 1.4 !important;
+}
+
+#bonus > div > div.grid[class*="grid-cols"]:first-of-type p {
+  color: #E8E8E8 !important;
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+  margin: 0 !important;
+}
+
+/* ===== 4. 促銷橫幅圖片修正 ===== */
+#bonus > div > div.grid[class*="grid-cols"]:last-of-type {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 20px !important;
+  max-width: 1200px !important;
+  margin: 40px auto !important;
+  padding: 0 20px !important;
+}
+
+@media (max-width: 1024px) {
+  #bonus > div > div.grid[class*="grid-cols"]:last-of-type {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+#bonus > div > div.grid[class*="grid-cols"]:last-of-type > div.group {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  aspect-ratio: 2.5 / 1;
+}
+
+#bonus > div > div.grid[class*="grid-cols"]:last-of-type > div.group:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+#bonus > div > div.grid[class*="grid-cols"]:last-of-type img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== 5. 遊戲卡片按鈕修正 ===== */
+#games .grid.grid-cols-2 {
+  display: grid !important;
+  gap: 24px !important;
+  max-width: 1200px !important;
+  margin: 40px auto !important;
+  padding: 0 20px !important;
+}
+
+@media (min-width: 768px) {
+  #games .grid.grid-cols-2 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  #games .grid.grid-cols-2 {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+#games .game-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+#games .game-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+#games .game-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#games .button-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: linear-gradient(to top, 
+    rgba(0, 0, 0, 0.95) 0%, 
+    rgba(0, 0, 0, 0.85) 50%, 
+    rgba(0, 0, 0, 0.4) 80%,
+    transparent 100%);
+}
+
+#games .button-overlay a[class*="bg-gradient-to-r"] {
+  background: linear-gradient(135deg, #FF1744 0%, #D50000 100%) !important;
+  color: white !important;
+  border: none;
+  padding: 12px 20px !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(255, 23, 68, 0.3);
+}
+
+#games .button-overlay a[class*="bg-gradient-to-r"]:hover {
+  background: linear-gradient(135deg, #FF5252 0%, #FF1744 100%) !important;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(255, 23, 68, 0.5);
+}
+
+/* ===== 6. About Section 文字修正 ===== */
+#about {
+  background: white !important;
+  padding: 80px 20px !important;
+}
+
+#about .max-w-7xl,
+#about .max-w-8xl {
+  max-width: 1200px !important;
+  margin: 0 auto;
+}
+
+#about h2 {
+  font-size: 42px !important;
+  font-weight: 800 !important;
+  margin-bottom: 20px !important;
+  color: #000 !important;
+  text-align: center;
+}
+
+#about h3 {
+  font-size: 26px !important;
+  color: #D50000 !important;
+  margin: 32px 0 20px !important;
+  font-weight: 700 !important;
+}
+
+#about p {
+  font-size: 17px !important;
+  line-height: 1.9 !important;
+  color: #333 !important;
+  margin-bottom: 20px !important;
+}
+
+#about a {
+  color: #D50000 !important;
+  font-weight: 600 !important;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+#about a:hover {
+  color: #FF1744 !important;
+}
+
+/* ===== 7. FAQ Section 修正 ===== */
+#faq {
+  position: relative !important;
+  padding: 80px 20px !important;
+  background-size: cover;
+  background-position: center;
+}
+
+#faq::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+}
+
+#faq > div,
+#faq > .max-w-7xl,
+#faq > .max-w-8xl {
+  position: relative;
+  z-index: 2;
+  max-width: 900px !important;
+  margin: 0 auto;
+}
+
+#faq h2 {
+  color: white !important;
+  text-align: center;
+  font-size: 42px !important;
+  font-weight: 800 !important;
+  margin-bottom: 16px !important;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9) !important;
+}
+
+#faq > p {
+  color: rgba(255, 255, 255, 0.95) !important;
+  text-align: center;
+  margin-bottom: 48px !important;
+  font-size: 17px !important;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7) !important;
+}
+
+#faq .faq-item,
+#faq div[class*="border"] {
+  background: white !important;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+#faq .faq-item:hover,
+#faq div[class*="border"]:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+#faq button[class*="faq"],
+#faq button[aria-expanded] {
+  padding: 24px 28px !important;
+  cursor: pointer;
+  font-weight: 600 !important;
+  font-size: 17px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+  color: #1a1a1a !important;
+  width: 100%;
+  text-align: left;
+}
+
+#faq button[class*="faq"]:hover,
+#faq button[aria-expanded]:hover {
+  background: #f8f8f8;
+}
+
+#faq div[class*="faq-answer"],
+#faq .faq-answer {
+  padding: 0 28px 24px !important;
+  line-height: 1.9 !important;
+  color: #555 !important;
+  font-size: 16px !important;
+}
+
+/* ===== 8. Footer 修正 ===== */
+#contact,
+footer {
+  background: #000 !important;
+  padding: 60px 20px 40px !important;
+  color: white;
+}
+
+#contact .grid,
+footer .grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 48px !important;
+  max-width: 1200px !important;
+  margin: 0 auto 40px !important;
+}
+
+#contact h3,
+footer h3 {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  margin-bottom: 24px !important;
+  color: #FFC107 !important;
+}
+
+#contact ul,
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+#contact li,
+footer li {
+  margin-bottom: 14px;
+}
+
+#contact a,
+footer a {
+  color: #E0E0E0 !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 15px !important;
+}
+
+#contact a:hover,
+footer a:hover {
+  color: #FFC107 !important;
+}
+
+/* Disclaimer 修正 */
+#contact > div:last-child,
+footer > div:last-child,
+.disclaimer-section {
+  background: #000 !important;
+  padding: 40px 20px !important;
+  border-top: 1px solid #333;
+}
+
+.disclaimer-text,
+#contact > div:last-child > div,
+footer > div:last-child > div {
+  max-width: 1200px !important;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.disclaimer-chinese,
+#contact strong,
+footer strong {
+  color: #FFC107 !important;
+  font-size: 15px !important;
+  line-height: 2 !important;
+  margin-bottom: 24px !important;
+  font-weight: 500 !important;
+}
+
+.disclaimer-english,
+#contact p:not(:has(strong)),
+footer p:not(:has(strong)) {
+  color: #B0B0B0 !important;
+  font-size: 14px !important;
+  line-height: 2 !important;
+  font-weight: 400 !important;
+}
+
+/* ===== 9. 通用間距系統 ===== */
+.container {
+  max-width: 1200px !important;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 60px 0 !important;
+}
+
+.max-w-7xl,
+.max-w-8xl {
+  max-width: 1200px !important;
+}
+
+/* ===== 10. 按鈕通用樣式 ===== */
+.cta-button,
+a[class*="bg-gradient-to-r"]:not([class*="hover:from"]) {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%) !important;
+  color: #000 !important;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+.cta-button:hover,
+a[class*="bg-gradient-to-r"]:not([class*="hover:from"]):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+}
+
+/* ===== RWD 響應式調整 ===== */
+@media (max-width: 1024px) {
+  #home .grid.grid-cols-2,
+  #games .grid.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  #bonus > div > div.grid[class*="grid-cols"]:first-of-type,
+  #bonus > div > div.grid[class*="grid-cols"]:last-of-type {
+    grid-template-columns: 1fr !important;
+  }
+  
+  #contact .grid,
+  footer .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #home .grid.grid-cols-2,
+  #games .grid.grid-cols-2,
+  #bonus > div > div.grid[class*="grid-cols"]:first-of-type,
+  #bonus > div > div.grid[class*="grid-cols"]:last-of-type {
+    grid-template-columns: 1fr !important;
+  }
+  
+  #contact .grid,
+  footer .grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  
+  #home h1 {
+    font-size: 32px !important;
+  }
+  
+  #faq h2,
+  #about h2 {
+    font-size: 28px !important;
+  }
+}
+
+/* ===== 平滑滾動 ===== */
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* ===== 載入動畫優化 ===== */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+

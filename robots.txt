@@ -8,3 +8,5 @@ Sitemap: https://myanbetapp.com/sitemap.xml
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
 
+
+
