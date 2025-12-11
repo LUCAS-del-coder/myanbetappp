@@ -1,10 +1,79 @@
 /* ========================================
-   UI 格式修正 - 基於 Claude 格式修復版
+   全新網站排版設計 - 2025 現代化版本
+   保持內容不變，僅改變 UI 設計
    ======================================== */
 
-/* ===== 1. Hero Section 標題增強 ===== */
+/* ===== 全局變量與基礎設定 ===== */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gold-gradient: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  --dark-gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  --card-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== 1. 導航欄全新設計 ===== */
+header#navbar {
+  background: rgba(0, 0, 0, 0.95) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 1rem 0 !important;
+}
+
+header#navbar .logo-text {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.75rem !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 30px rgba(246, 211, 101, 0.5);
+}
+
+header#navbar nav a {
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+header#navbar nav a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 2px;
+  background: var(--gold-gradient);
+  transition: transform 0.3s ease;
+}
+
+header#navbar nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+header#navbar nav a:hover::before {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ===== 2. Hero Section 全新設計 ===== */
 #home {
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 #home::before {
@@ -14,295 +83,420 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.3) 0%, transparent 50%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
   z-index: 1;
 }
 
-#home > * {
+#home img[src*="home-background"] {
+  filter: brightness(0.3) saturate(1.2);
+  transform: scale(1.1);
+  animation: backgroundFloat 20s ease-in-out infinite;
+}
+
+@keyframes backgroundFloat {
+  0%, 100% { transform: scale(1.1) translateY(0); }
+  50% { transform: scale(1.15) translateY(-20px); }
+}
+
+#home > div:first-of-type {
+  position: relative;
+  z-index: 10;
+  padding: 4rem 1rem;
+}
+
+#home h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.1 !important;
+  margin-bottom: 2rem !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f6d365 50%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none !important;
+  animation: textGlow 3s ease-in-out infinite;
+  letter-spacing: -1px;
+}
+
+@keyframes textGlow {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(246, 211, 101, 0.5)); }
+  50% { filter: drop-shadow(0 0 30px rgba(246, 211, 101, 0.8)); }
+}
+
+#home p {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  line-height: 1.8 !important;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+  max-width: 800px;
+  margin: 0 auto 3rem !important;
+}
+
+#home .flex.flex-col a {
+  padding: 1.25rem 2.5rem !important;
+  border-radius: 50px !important;
+  font-size: 1.125rem !important;
+  font-weight: 700 !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+#home .flex.flex-col a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+#home .flex.flex-col a:hover::before {
+  left: 100%;
+}
+
+#home .flex.flex-col a:first-child {
+  background: var(--gold-gradient) !important;
+  color: #000 !important;
+}
+
+#home .flex.flex-col a:last-child {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+#home .flex.flex-col a:last-child:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Logo Grid 全新設計 */
+#home .grid.grid-cols-2 {
+  max-width: 1400px !important;
+  padding: 3rem 2rem !important;
+  gap: 2rem !important;
+}
+
+#home .grid.grid-cols-2 > div a {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  padding: 2rem !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+#home .grid.grid-cols-2 > div a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(246, 211, 101, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+#home .grid.grid-cols-2 > div a:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+#home .grid.grid-cols-2 > div a:hover {
+  transform: translateY(-10px) scale(1.05);
+  border-color: rgba(246, 211, 101, 0.6) !important;
+  box-shadow: 0 20px 60px rgba(246, 211, 101, 0.3);
+}
+
+#home .grid.grid-cols-2 img {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+/* ===== 3. Bonus Section 全新設計 ===== */
+#bonus {
+  position: relative;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%) !important;
+  padding: 6rem 0 !important;
+  overflow: hidden;
+}
+
+#bonus::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(102, 126, 234, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(118, 75, 162, 0.2) 0%, transparent 50%);
+  z-index: 1;
+}
+
+#bonus > div {
   position: relative;
   z-index: 2;
 }
 
-#home h1 {
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9) !important;
-  font-weight: 800 !important;
-  line-height: 1.3 !important;
+#bonus h2 {
+  font-size: clamp(2rem, 6vw, 3.5rem) !important;
+  font-weight: 900 !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f6d365 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem !important;
+  text-shadow: none !important;
 }
 
-#home p {
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8) !important;
-  color: #ffffff !important;
+#bonus h3 {
+  color: #f6d365 !important;
+  font-weight: 600 !important;
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem) !important;
 }
 
-/* ===== 2. Logo Grid 修正 ===== */
-#home .grid.grid-cols-2 {
-  display: grid !important;
-  gap: 24px !important;
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 40px 20px !important;
+#bonus .grid.md\:grid-cols-1.lg\:grid-cols-2 > div {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 24px !important;
+  padding: 2.5rem !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 }
 
-@media (min-width: 768px) {
-  #home .grid.grid-cols-2 {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
+#bonus .grid.md\:grid-cols-1.lg\:grid-cols-2 > div::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(246, 211, 101, 0.1) 0%, transparent 70%);
+  transition: transform 0.6s;
 }
 
-@media (min-width: 1024px) {
-  #home .grid.grid-cols-2 {
-    grid-template-columns: repeat(6, 1fr) !important;
-  }
-}
-
-#home .grid.grid-cols-2 > div {
-  background: rgba(255, 255, 255, 0.08) !important;
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  padding: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100px;
-  transition: all 0.3s ease;
-}
-
-#home .grid.grid-cols-2 > div:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.12) !important;
-  border-color: rgba(255, 253, 108, 0.4);
-  box-shadow: 0 8px 24px rgba(255, 253, 108, 0.2);
-}
-
-#home .grid.grid-cols-2 img {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  max-height: 60px;
-}
-
-/* ===== 3. Bonus 卡片等高修正 ===== */
-#bonus > div > div.grid[class*="grid-cols"] {
-  display: grid !important;
-  gap: 20px !important;
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 40px 20px !important;
-}
-
-@media (min-width: 1024px) {
-  #bonus > div > div.grid[class*="grid-cols"]:first-of-type {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-}
-
-#bonus > div > div.grid[class*="grid-cols"]:first-of-type > div {
-  background: rgba(30, 58, 95, 0.85) !important;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 24px !important;
-  display: flex !important;
-  gap: 16px;
-  align-items: flex-start;
-  min-height: 160px !important;
-  transition: all 0.3s ease;
+#bonus .grid.md\:grid-cols-1.lg\:grid-cols-2 > div:hover::before {
+  transform: rotate(180deg);
 }
 
 #bonus .grid.md\:grid-cols-1.lg\:grid-cols-2 > div:hover {
-  transform: translateY(-3px);
-  background: rgba(30, 58, 95, 0.95) !important;
-  border-color: rgba(255, 253, 108, 0.3);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(246, 211, 101, 0.6) !important;
+  box-shadow: 0 25px 70px rgba(246, 211, 101, 0.3);
 }
 
-#bonus > div > div.grid[class*="grid-cols"]:first-of-type span[class*="text-3xl"],
-#bonus > div > div.grid[class*="grid-cols"]:first-of-type span[class*="text-4xl"],
-#bonus > div > div.grid[class*="grid-cols"]:first-of-type span[class*="text-5xl"] {
-  font-size: 36px !important;
-  flex-shrink: 0;
-  line-height: 1;
-}
-
-#bonus > div > div.grid[class*="grid-cols"]:first-of-type a[class*="font-bold"] {
-  color: #FFD700 !important;
-  font-size: 18px !important;
+#bonus .grid.md\:grid-cols-1.lg\:grid-cols-2 > div a {
+  color: #f6d365 !important;
   font-weight: 700 !important;
-  margin-bottom: 8px !important;
-  line-height: 1.4 !important;
+  font-size: 1.25rem !important;
+  transition: all 0.3s;
 }
 
-#bonus > div > div.grid[class*="grid-cols"]:first-of-type p {
-  color: #E8E8E8 !important;
-  font-size: 15px !important;
-  line-height: 1.7 !important;
-  margin: 0 !important;
+#bonus .grid.md\:grid-cols-1.lg\:grid-cols-2 > div a:hover {
+  color: #ffffff !important;
+  transform: translateX(5px);
 }
 
-/* ===== 4. 促銷橫幅圖片修正 ===== */
-#bonus > div > div.grid[class*="grid-cols"]:last-of-type {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 20px !important;
-  max-width: 1200px !important;
-  margin: 40px auto !important;
-  padding: 0 20px !important;
+#bonus .grid.md\:grid-cols-1.lg\:grid-cols-2 > div p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  line-height: 1.8 !important;
+  font-size: 1rem !important;
 }
 
-@media (max-width: 1024px) {
-  #bonus > div > div.grid[class*="grid-cols"]:last-of-type {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-#bonus > div > div.grid[class*="grid-cols"]:last-of-type > div.group {
-  border-radius: 16px;
+/* 促銷橫幅 */
+#bonus .grid.md\:grid-cols-2:last-of-type > div {
+  border-radius: 20px !important;
   overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-  aspect-ratio: 2.5 / 1;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#bonus > div > div.grid[class*="grid-cols"]:last-of-type > div.group:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+#bonus .grid.md\:grid-cols-2:last-of-type > div:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
 }
 
-#bonus > div > div.grid[class*="grid-cols"]:last-of-type img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+#bonus .grid.md\:grid-cols-2:last-of-type img {
+  transition: transform 0.6s;
 }
 
-/* ===== 5. 遊戲卡片按鈕修正 ===== */
-#games .grid.grid-cols-2 {
-  display: grid !important;
-  gap: 24px !important;
-  max-width: 1200px !important;
-  margin: 40px auto !important;
-  padding: 0 20px !important;
+#bonus .grid.md\:grid-cols-2:last-of-type > div:hover img {
+  transform: scale(1.1);
 }
 
-@media (min-width: 768px) {
-  #games .grid.grid-cols-2 {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
+/* ===== 4. Games Section 全新設計 ===== */
+#games {
+  background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%) !important;
+  padding: 6rem 0 !important;
+  position: relative;
 }
 
-@media (min-width: 1024px) {
-  #games .grid.grid-cols-2 {
-    grid-template-columns: repeat(4, 1fr) !important;
-  }
+#games::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, rgba(102, 126, 234, 0.05));
+  pointer-events: none;
+}
+
+#games h2 {
+  font-size: clamp(2rem, 6vw, 3.5rem) !important;
+  font-weight: 900 !important;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem !important;
+}
+
+#games p {
+  color: #6b7280 !important;
+  font-size: 1.125rem !important;
+  line-height: 1.8 !important;
 }
 
 #games .game-card {
-  position: relative;
-  border-radius: 16px;
+  background: #ffffff !important;
+  border-radius: 24px !important;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  position: relative;
+}
+
+#games .game-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 2px;
+  background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #f5576c);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+#games .game-card:hover::before {
+  opacity: 1;
 }
 
 #games .game-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 25px 70px rgba(102, 126, 234, 0.3);
 }
 
 #games .game-card img {
-  width: 100%;
-  height: auto;
-  display: block;
+  border-radius: 20px 20px 0 0;
+  transition: transform 0.6s;
+}
+
+#games .game-card:hover img {
+  transform: scale(1.1);
 }
 
 #games .button-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 16px;
   background: linear-gradient(to top, 
     rgba(0, 0, 0, 0.95) 0%, 
-    rgba(0, 0, 0, 0.85) 50%, 
+    rgba(0, 0, 0, 0.8) 60%,
     rgba(0, 0, 0, 0.4) 80%,
-    transparent 100%);
+    transparent 100%) !important;
+  border-radius: 0 0 20px 20px;
 }
 
-#games .button-overlay a[class*="bg-gradient-to-r"] {
-  background: linear-gradient(135deg, #FF1744 0%, #D50000 100%) !important;
-  color: white !important;
-  border: none;
-  padding: 12px 20px !important;
-  border-radius: 10px !important;
-  font-weight: 600 !important;
-  font-size: 14px !important;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-align: center;
-  white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(255, 23, 68, 0.3);
+#games .button-overlay a {
+  background: var(--secondary-gradient) !important;
+  border-radius: 12px !important;
+  padding: 0.875rem 1.5rem !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  box-shadow: 0 8px 24px rgba(245, 87, 108, 0.4);
+  transition: all 0.3s;
 }
 
-#games .button-overlay a[class*="bg-gradient-to-r"]:hover {
-  background: linear-gradient(135deg, #FF5252 0%, #FF1744 100%) !important;
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(255, 23, 68, 0.5);
+#games .button-overlay a:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 32px rgba(245, 87, 108, 0.6);
 }
 
-/* ===== 6. About Section 文字修正 ===== */
+/* ===== 5. About Section 全新設計 ===== */
 #about {
-  background: white !important;
-  padding: 80px 20px !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  padding: 6rem 0 !important;
+  position: relative;
+  overflow: hidden;
 }
 
-#about .max-w-7xl,
-#about .max-w-8xl {
-  max-width: 1200px !important;
-  margin: 0 auto;
+#about::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
 }
 
 #about h2 {
-  font-size: 42px !important;
-  font-weight: 800 !important;
-  margin-bottom: 20px !important;
-  color: #000 !important;
-  text-align: center;
+  color: #ffffff !important;
+  font-size: clamp(2rem, 6vw, 3.5rem) !important;
+  font-weight: 900 !important;
+  margin-bottom: 1.5rem !important;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 #about h3 {
-  font-size: 26px !important;
-  color: #D50000 !important;
-  margin: 32px 0 20px !important;
+  color: #f6d365 !important;
+  font-size: 2rem !important;
   font-weight: 700 !important;
+  margin: 2.5rem 0 1.5rem !important;
 }
 
 #about p {
-  font-size: 17px !important;
-  line-height: 1.9 !important;
-  color: #333 !important;
-  margin-bottom: 20px !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-size: 1.125rem !important;
+  line-height: 2 !important;
+  margin-bottom: 1.5rem !important;
 }
 
 #about a {
-  color: #D50000 !important;
-  font-weight: 600 !important;
+  color: #f6d365 !important;
+  font-weight: 700 !important;
   text-decoration: underline;
-  transition: color 0.3s ease;
+  text-underline-offset: 4px;
+  transition: all 0.3s;
 }
 
 #about a:hover {
-  color: #FF1744 !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 20px rgba(246, 211, 101, 0.8);
 }
 
-/* ===== 7. FAQ Section 修正 ===== */
+/* ===== 6. FAQ Section 全新設計 ===== */
 #faq {
-  position: relative !important;
-  padding: 80px 20px !important;
-  background: linear-gradient(to bottom right, #1a1a2e, #16213e, #0f3460) !important;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important;
+  padding: 6rem 0 !important;
+  position: relative;
 }
 
 #faq::before {
@@ -312,263 +506,330 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3));
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(118, 75, 162, 0.3) 0%, transparent 50%);
   z-index: 1;
 }
 
-#faq > div,
-#faq > .max-w-7xl,
-#faq > .max-w-8xl {
+#faq > div {
   position: relative;
   z-index: 2;
-  max-width: 900px !important;
-  margin: 0 auto;
 }
 
 #faq h2 {
-  color: white !important;
-  text-align: center;
-  font-size: 42px !important;
-  font-weight: 800 !important;
-  margin-bottom: 16px !important;
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8) !important;
+  color: #ffffff !important;
+  font-size: clamp(2rem, 6vw, 3.5rem) !important;
+  font-weight: 900 !important;
+  margin-bottom: 1rem !important;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 #faq > p {
-  color: rgba(255, 255, 255, 0.95) !important;
-  text-align: center;
-  margin-bottom: 48px !important;
-  font-size: 17px !important;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1.125rem !important;
+  line-height: 1.8 !important;
+  margin-bottom: 3rem !important;
 }
 
-#faq .faq-item,
 #faq div[class*="border"] {
-  background: linear-gradient(to right, white, #f9f9f9) !important;
-  border: 2px solid rgba(255, 215, 0, 0.3) !important;
-  border-radius: 16px !important;
-  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  margin-bottom: 1.5rem !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
-  transition: all 0.3s ease;
 }
 
-#faq .faq-item:hover,
 #faq div[class*="border"]:hover {
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25) !important;
-  border-color: rgba(255, 215, 0, 0.6) !important;
+  border-color: rgba(246, 211, 101, 0.5) !important;
+  box-shadow: 0 20px 60px rgba(246, 211, 101, 0.2);
+  transform: translateY(-4px);
 }
 
-#faq button[class*="faq"],
 #faq button[aria-expanded] {
-  padding: 24px 28px !important;
-  cursor: pointer;
+  background: transparent !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
-  font-size: 17px !important;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background 0.3s ease;
-  color: #1a1a1a !important;
-  width: 100%;
-  text-align: left;
+  font-size: 1.125rem !important;
+  padding: 1.5rem 2rem !important;
+  transition: all 0.3s;
 }
 
-#faq button[class*="faq"]:hover,
 #faq button[aria-expanded]:hover {
-  background: linear-gradient(to right, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1)) !important;
-}
-
-#faq div[class*="faq-answer"],
-#faq .faq-answer {
-  padding: 0 28px 24px !important;
-  line-height: 1.9 !important;
-  color: #333 !important;
-  font-size: 16px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
 }
 
 #faq svg {
-  color: #e76e01 !important;
+  color: #f6d365 !important;
+  transition: transform 0.3s;
 }
 
-/* ===== 8. Footer 修正 ===== */
+#faq button[aria-expanded][aria-expanded="true"] svg {
+  transform: rotate(45deg);
+}
+
+#faq .faq-answer > div {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-top: 2px solid rgba(246, 211, 101, 0.3) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  padding: 2rem !important;
+  line-height: 2 !important;
+  font-size: 1rem !important;
+}
+
+/* ===== 7. Footer 全新設計 ===== */
 #contact,
 footer {
-  background: #000 !important;
-  padding: 60px 20px 40px !important;
-  color: white;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  padding: 4rem 0 2rem !important;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#contact::before,
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(246, 211, 101, 0.5), transparent);
 }
 
 #contact .grid,
 footer .grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 48px !important;
-  max-width: 1200px !important;
-  margin: 0 auto 40px !important;
+  gap: 3rem !important;
+  margin-bottom: 3rem !important;
 }
 
 #contact h3,
 footer h3 {
-  font-size: 20px !important;
+  color: #f6d365 !important;
+  font-size: 1.5rem !important;
   font-weight: 700 !important;
-  margin-bottom: 24px !important;
-  color: #FFC107 !important;
+  margin-bottom: 1.5rem !important;
+  position: relative;
+  padding-bottom: 1rem;
 }
 
-#contact ul,
-footer ul {
-  list-style: none;
-  padding: 0;
-}
-
-#contact li,
-footer li {
-  margin-bottom: 14px;
+#contact h3::after,
+footer h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--gold-gradient);
+  border-radius: 2px;
 }
 
 #contact a,
 footer a {
-  color: #E0E0E0 !important;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  font-size: 15px !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 1rem !important;
+  transition: all 0.3s;
+  display: inline-block;
 }
 
 #contact a:hover,
 footer a:hover {
-  color: #FFC107 !important;
+  color: #f6d365 !important;
+  transform: translateX(5px);
 }
 
-/* Disclaimer 修正 */
+#contact li,
+footer li {
+  margin-bottom: 1rem;
+}
+
+.disclaimer-section,
 #contact > div:last-child,
-footer > div:last-child,
-.disclaimer-section {
-  background: #000 !important;
-  padding: 40px 20px !important;
-  border-top: 1px solid #333;
-}
-
-.disclaimer-text,
-#contact > div:last-child > div,
-footer > div:last-child > div {
-  max-width: 1200px !important;
-  margin: 0 auto;
-  text-align: center;
+footer > div:last-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem !important;
+  margin-top: 2rem;
 }
 
 .disclaimer-chinese,
 #contact strong,
 footer strong {
-  color: #FFC107 !important;
-  font-size: 15px !important;
+  color: #f6d365 !important;
+  font-size: 1rem !important;
   line-height: 2 !important;
-  margin-bottom: 24px !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
 }
 
 .disclaimer-english,
 #contact p:not(:has(strong)),
 footer p:not(:has(strong)) {
-  color: #B0B0B0 !important;
-  font-size: 14px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 0.9375rem !important;
   line-height: 2 !important;
-  font-weight: 400 !important;
 }
 
-/* ===== 9. 通用間距系統 ===== */
-.container {
-  max-width: 1200px !important;
-  margin: 0 auto;
-  padding: 0 20px;
+/* ===== 8. Articles CTA Section ===== */
+#articles-cta {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+  padding: 4rem 0 !important;
+  position: relative;
+  overflow: hidden;
 }
 
-section {
-  padding: 60px 0 !important;
+#articles-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
 }
 
-.max-w-7xl,
-.max-w-8xl {
-  max-width: 1200px !important;
+#articles-cta > div {
+  position: relative;
+  z-index: 2;
 }
 
-/* ===== 10. 按鈕通用樣式 ===== */
-.cta-button,
-a[class*="bg-gradient-to-r"]:not([class*="hover:from"]) {
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%) !important;
-  color: #000 !important;
-  padding: 14px 32px;
-  border-radius: 12px;
-  font-weight: 700;
-  font-size: 16px;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+#articles-cta h2 {
+  color: #ffffff !important;
+  font-size: clamp(2rem, 6vw, 3.5rem) !important;
+  font-weight: 900 !important;
+  margin-bottom: 1rem !important;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.cta-button:hover,
-a[class*="bg-gradient-to-r"]:not([class*="hover:from"]):hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+#articles-cta p {
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-size: 1.125rem !important;
+  line-height: 1.8 !important;
 }
 
-/* ===== RWD 響應式調整 ===== */
+#articles-cta a {
+  background: #ffffff !important;
+  color: #f5576c !important;
+  padding: 1.25rem 2.5rem !important;
+  border-radius: 50px !important;
+  font-weight: 700 !important;
+  font-size: 1.125rem !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+}
+
+#articles-cta a:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== 9. 響應式設計優化 ===== */
 @media (max-width: 1024px) {
-  #home .grid.grid-cols-2,
+  #home .grid.grid-cols-2 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  
   #games .grid.grid-cols-2 {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-  
-  #bonus > div > div.grid[class*="grid-cols"]:first-of-type,
-  #bonus > div > div.grid[class*="grid-cols"]:last-of-type {
-    grid-template-columns: 1fr !important;
-  }
-  
-  #contact .grid,
-  footer .grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(3, 1fr) !important;
   }
 }
 
 @media (max-width: 768px) {
+  header#navbar {
+    padding: 0.75rem 0 !important;
+  }
+  
+  #home {
+    min-height: 90vh;
+    padding: 2rem 0;
+  }
+  
+  #home h1 {
+    font-size: 2rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  #home p {
+    font-size: 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  #home .flex.flex-col a {
+    padding: 1rem 1.5rem !important;
+    font-size: 1rem !important;
+  }
+  
   #home .grid.grid-cols-2,
-  #games .grid.grid-cols-2,
-  #bonus > div > div.grid[class*="grid-cols"]:first-of-type,
-  #bonus > div > div.grid[class*="grid-cols"]:last-of-type {
-    grid-template-columns: 1fr !important;
+  #games .grid.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+  
+  #bonus,
+  #games,
+  #about,
+  #faq {
+    padding: 3rem 0 !important;
+  }
+  
+  #bonus h2,
+  #games h2,
+  #about h2,
+  #faq h2 {
+    font-size: 2rem !important;
   }
   
   #contact .grid,
   footer .grid {
     grid-template-columns: 1fr !important;
-    gap: 32px !important;
-  }
-  
-  #home h1 {
-    font-size: 32px !important;
-  }
-  
-  #faq h2,
-  #about h2 {
-    font-size: 28px !important;
+    gap: 2rem !important;
   }
 }
 
-/* ===== 平滑滾動 ===== */
-html {
-  scroll-behavior: smooth !important;
+/* ===== 10. 動畫增強 ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* ===== 載入動畫優化 ===== */
 .fade-in-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  animation: fadeInUp 0.8s ease-out;
 }
 
-.fade-in-section.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+/* ===== 11. 滾動條美化 ===== */
+::-webkit-scrollbar {
+  width: 12px;
 }
 
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+/* ===== 12. 選擇文本樣式 ===== */
+::selection {
+  background: rgba(246, 211, 101, 0.3);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: rgba(246, 211, 101, 0.3);
+  color: #ffffff;
+}
