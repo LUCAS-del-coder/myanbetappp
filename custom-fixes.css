@@ -302,8 +302,7 @@
 #faq {
   position: relative !important;
   padding: 80px 20px !important;
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(to bottom right, #1a1a2e, #16213e, #0f3460) !important;
 }
 
 #faq::before {
@@ -313,7 +312,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3));
   z-index: 1;
 }
 
@@ -332,7 +331,7 @@
   font-size: 42px !important;
   font-weight: 800 !important;
   margin-bottom: 16px !important;
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9) !important;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8) !important;
 }
 
 #faq > p {
@@ -345,24 +344,26 @@
 
 #faq .faq-item,
 #faq div[class*="border"] {
-  background: white !important;
-  border-radius: 12px;
+  background: linear-gradient(to right, white, #f9f9f9) !important;
+  border: 2px solid rgba(255, 215, 0, 0.3) !important;
+  border-radius: 16px !important;
   margin-bottom: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
   transition: all 0.3s ease;
 }
 
 #faq .faq-item:hover,
 #faq div[class*="border"]:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25) !important;
+  border-color: rgba(255, 215, 0, 0.6) !important;
 }
 
 #faq button[class*="faq"],
 #faq button[aria-expanded] {
   padding: 24px 28px !important;
   cursor: pointer;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   font-size: 17px !important;
   display: flex;
   justify-content: space-between;
@@ -375,15 +376,19 @@
 
 #faq button[class*="faq"]:hover,
 #faq button[aria-expanded]:hover {
-  background: #f8f8f8;
+  background: linear-gradient(to right, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1)) !important;
 }
 
 #faq div[class*="faq-answer"],
 #faq .faq-answer {
   padding: 0 28px 24px !important;
   line-height: 1.9 !important;
-  color: #555 !important;
+  color: #333 !important;
   font-size: 16px !important;
+}
+
+#faq svg {
+  color: #e76e01 !important;
 }
 
 /* ===== 8. Footer 修正 ===== */
