@@ -101,8 +101,8 @@ header#navbar nav a:hover::before {
 }
 
 #home img[src*="home-background"] {
-  filter: brightness(0.9) saturate(1.2);
-  transform: scale(1.1);
+  filter: brightness(0.85) saturate(1.2);
+  transform: scale(1.05);
   animation: backgroundFloat 20s ease-in-out infinite;
 }
 
@@ -176,9 +176,8 @@ header#navbar nav a:hover::before {
 }
 
 #home .flex.flex-col a:last-child {
-  background: rgba(255, 255, 255, 0.2) !important;
-  backdrop-filter: blur(3px);
-  border: 2px solid rgba(255, 255, 255, 0.4) !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border: none !important;
   color: #ffffff !important;
 }
 
@@ -290,6 +289,10 @@ header#navbar nav a:hover::before {
   position: relative;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+#bonus .grid.md\:grid-cols-1.lg\:grid-cols-2 > div > div {
+  margin-bottom: 0 !important;
 }
 
 #bonus .grid.md\:grid-cols-1.lg\:grid-cols-2 > div::before {
@@ -437,27 +440,37 @@ header#navbar nav a:hover::before {
 }
 
 #games .button-overlay {
-  background: linear-gradient(to top, 
-    rgba(0, 0, 0, 0.95) 0%, 
-    rgba(0, 0, 0, 0.8) 60%,
-    rgba(0, 0, 0, 0.4) 80%,
-    transparent 100%) !important;
-  border-radius: 0 0 20px 20px;
+  background: linear-gradient(to bottom, 
+    transparent 0%, 
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.9) 100%) !important;
+  border-radius: 20px;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 #games .button-overlay a {
-  background: var(--secondary-gradient) !important;
+  background: linear-gradient(135deg, #FB2056 0%, #D50000 100%) !important;
   border-radius: 12px !important;
-  padding: 0.875rem 1.5rem !important;
+  padding: 0.875rem 1.25rem !important;
   font-weight: 700 !important;
   font-size: 0.875rem !important;
-  box-shadow: 0 8px 24px rgba(245, 87, 108, 0.4);
+  box-shadow: 0 8px 24px rgba(251, 32, 86, 0.4) !important;
   transition: all 0.3s;
+  width: 100% !important;
+  text-align: center !important;
 }
 
 #games .button-overlay a:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 12px 32px rgba(245, 87, 108, 0.6);
+  box-shadow: 0 12px 32px rgba(251, 32, 86, 0.6) !important;
+  background: linear-gradient(135deg, #FF5252 0%, #FB2056 100%) !important;
+}
+
+#games .button-overlay > div {
+  gap: 0.75rem !important;
+  width: 100% !important;
+  max-width: 200px !important;
 }
 
 /* ===== 5. About Section 全新設計 ===== */
