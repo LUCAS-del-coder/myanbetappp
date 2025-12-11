@@ -17,6 +17,15 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+body {
+  background: #000000 !important;
+}
+
+#home {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
 /* 確保所有連結可點擊 */
 a {
   position: relative;
