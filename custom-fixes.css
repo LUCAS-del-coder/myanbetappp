@@ -289,10 +289,13 @@ header#navbar nav a:hover::before {
   position: relative;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  height: auto !important;
+  min-height: auto !important;
 }
 
 #bonus .grid.md\:grid-cols-1.lg\:grid-cols-2 > div > div {
   margin-bottom: 0 !important;
+  height: auto !important;
 }
 
 #bonus .grid.md\:grid-cols-1.lg\:grid-cols-2 > div::before {
